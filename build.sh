@@ -9,5 +9,6 @@ else
 fi
 
 docker run --name cloudflared_arm_build -dt --rm cloudflared_arm_build cat
-docker cp $(docker ps -qf "name=cloudflared_arm_build"):/opt/cloudflared-build/out/cloudflared .
+mkdir build
+docker cp $(docker ps -qf "name=cloudflared_arm_build"):/opt/cloudflared-build/out/cloudflared ./build/
 docker stop $(docker ps -qf "name=cloudflared_arm_build")
